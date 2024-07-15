@@ -1,0 +1,12 @@
+version: 'latest'
+
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "15672:15672" # RabbitMQ Management UI
+      - "5672:5672"   # AMQP port
+      - "1883:1883"   # MQTT port
+    volumes:
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./enabled_plugins:/etc/rabbitmq/enabled_plugins
